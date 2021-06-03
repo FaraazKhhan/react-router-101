@@ -1,0 +1,39 @@
+import React, { Component } from "react";
+
+class About extends Component {
+  state = {
+    count: 0,
+  };
+
+  doIncrement = () => {
+    this.setState((prev) => ({
+      count: prev.count + 1,
+    }));
+  };
+
+  doDecrement = () => {
+    return this.setState((prev) => ({
+      count: prev.count - 1,
+    }));
+  };
+
+  doReset = () => {
+    return this.setState({ count: 0 });
+  };
+
+  render() {
+    return (
+      <section className="about-page">
+        <h1>About Page</h1>
+        <div className="other">
+          <h4>Count: {this.state.count}</h4>
+          <button onClick={this.doIncrement}>Increment</button>
+          <button onClick={this.doDecrement}>Decrement</button>
+          <button onClick={this.doReset}>Reset</button>
+        </div>
+      </section>
+    );
+  }
+}
+
+export default About;
